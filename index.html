@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Battlelore Army Builder</title>
+		<link href="public/assets/css/style.css" rel="stylesheet">
+		<script src="https://unpkg.com/vue@3"></script>
+		<script src="src/Entities/Unit.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div>verfügbare Punkte: {{maxPoints + (extraPoints ? 5 : 0) - usedPoints}}</div>
+			<input id="commandTentBool" type="checkbox" v-model="extraPoints" /><label for="commandTentBool"><img src="public/assets/img/commandtents.png" />Kommandozelt</label>
+			<div>
+				<input id="factionDaqan" type="radio" name="faction" v-model="faction" value="Daqan" /><label for="factionDaqan">Daqan</label>
+				<input id="factionUthuk" type="radio" name="faction" v-model="faction" value="Uthuk" /><label for="factionUthuk">Uthuk</label>
+				<input id="factionLegion" type="radio" name="faction" v-model="faction" value="Legion" /><label for="factionLegion">Legion</label>
+			</div>
+			<div class="unit-card-container">
+				<div>
+					<builder-component v-for="unit in units" :unit="unit"></builder-component>
+				</div>
+				<div>
+					<army-component v-for="unit in army" :unit="unit"></army-component>
+				</div>
+			</div>
+		</div>
+		<script src="src/app.js"></script>
+	</body>
+</html>
