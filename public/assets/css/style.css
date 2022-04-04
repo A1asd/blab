@@ -1,0 +1,30 @@
+.unit-card {
+	display: block;
+	position: relative;
+	min-width: 250px;
+	max-width: 250px;
+	min-height: 60px;
+}
+
+.unit-card-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.unit-prop {
+	display: block;
+}
+
+.unit-name {
+	float: left;
+}
+
+.unit-cost {
+	text-align: right;
+}
+
+.unit-expansion {
+	position: absolute;
+	bottom: -3px;
+	right: 0;
+}
