@@ -9,18 +9,18 @@
 	</head>
 	<body>
 		<div id="app">
-			<div>verfügbare Punkte: {{maxPoints + (extraPoints ? 5 : 0) - usedPoints}}</div>
-			<input id="commandTentBool" type="checkbox" v-model="extraPoints" /><label for="commandTentBool"><img src="public/assets/img/commandtents.png" />Kommandozelt</label>
-			<div>
-				<input id="factionDaqan" type="radio" name="faction" v-model="faction" value="Daqan" /><label for="factionDaqan">Daqan</label>
-				<input id="factionUthuk" type="radio" name="faction" v-model="faction" value="Uthuk" /><label for="factionUthuk">Uthuk</label>
-				<input id="factionLegion" type="radio" name="faction" v-model="faction" value="Legion" /><label for="factionLegion">Legion</label>
+			<div class="army-points">verfügbare Punkte: {{maxPoints + (extraPoints ? 5 : 0) - usedPoints}}</div>
+			<div class="faction-container" :class="{ selected: faction }">
+				<input id="factionDaqan" class="faction-selector" type="radio" name="faction" v-model="faction" value="Daqan" /><div class="faction-selector-label"><label for="factionDaqan"><img src="public/assets/img/daqan.png" /><div>Daqan</div></div></label>
+				<input id="factionUthuk" class="faction-selector" type="radio" name="faction" v-model="faction" value="Uthuk" /><div class="faction-selector-label"><label for="factionUthuk"><img src="public/assets/img/uthuk.png" /><div>Uthuk</div></div></label>
+				<input id="factionLegion" class="faction-selector" type="radio" name="faction" v-model="faction" value="Legion" /><div class="faction-selector-label"><label for="factionLegion"><img src="public/assets/img/legion.png" /><div>Legion</div></div></label>
 			</div>
-			<div class="unit-card-container">
-				<div>
+			<input id="commandTentBool" class="commandtent-checkbox" type="checkbox" v-model="extraPoints" /><label v-if="faction" class="faction-selector-label" for="commandTentBool"><img src="public/assets/img/commandtents.png" /></label>
+			<div class="card-container">
+				<div class="unit-container">
 					<builder-component v-for="unit in units" :unit="unit"></builder-component>
 				</div>
-				<div>
+				<div class="army-container">
 					<army-component v-for="unit in army" :unit="unit"></army-component>
 				</div>
 			</div>

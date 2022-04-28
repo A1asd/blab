@@ -1,14 +1,54 @@
+#app {
+	padding: 50px 0 0 0;
+	width: 50%;
+	margin: auto;
+}
+
+.faction-container {
+	text-align: center;
+}
+
+.faction-container.selected {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 50px;
+}
+
+.commandtent-checkbox {
+	display: none;
+}
+
+.army-points {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 24px;
+	background-color: white;
+	text-align: center;
+	z-index: 1;
+}
+
 .unit-card {
-	display: block;
+	display: inline-block;
 	position: relative;
-	min-width: 250px;
-	max-width: 250px;
+	min-width: 240px;
+	max-width: 240px;
 	min-height: 60px;
 }
 
-.unit-card-container {
+.card-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+}
+
+.unit-container {
+	width: 500px;
+}
+
+.army-container {
+	width: 250px;
 }
 
 .unit-prop {
@@ -27,4 +67,28 @@
 	position: absolute;
 	bottom: -3px;
 	right: 0;
+}
+
+.faction-selector {
+	display: none;
+}
+
+.faction-selector-label {
+	display: inline-block;
+	background-color: #cccccc;
+	border: 2px solid #adadad;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 5px;
+	opacity: .8;
+}
+
+.faction-selector:checked + .faction-selector-label,
+.commandtent-checkbox:checked + .faction-selector-label {
+	background-color: #e3e3e3;
+	opacity: 1;
+}
+
+.faction-selector-label div {
+	text-align: center;
 }

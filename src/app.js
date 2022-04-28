@@ -107,6 +107,8 @@ const icons = {
 	"Schrecken aus dem Nebel": "public/assets/img/nebel.png",
 };
 
+let unitOrder = ['Legende', 'Elite', 'Infanterie', 'Kavallerie', 'Gelände'];
+
 const app = Vue.createApp({
 	data() {
 		return {
@@ -128,22 +130,18 @@ const app = Vue.createApp({
 		},
 		army: function() {
 			this.army.sort(function(el1, el2) {
-				if (el1.name < el2.name) {
-					return -1;
-				} else if (el1.name > el2.name) {
-					return 1;
+				if (el1.types[0] === el2.types[0]) {
+					return el1.name > el2.name ? 1 : -1;
 				}
-				return 0;
+				return unitOrder.indexOf(el1.types[0]) - unitOrder.indexOf(el2.types[0]);
 			});
 		},
 		units: function() {
 			this.units.sort(function(el1, el2) {
-				if (el1.name < el2.name) {
-					return -1;
-				} else if (el1.name > el2.name) {
-					return 1;
+				if (el1.types[0] === el2.types[0]) {
+					return el1.name > el2.name ? 1 : -1;
 				}
-				return 0;
+				return unitOrder.indexOf(el1.types[0]) - unitOrder.indexOf(el2.types[0]);
 			});
 		},
 	},
