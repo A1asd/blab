@@ -23,7 +23,8 @@ class Unit{
 	static Gepanzerte() { return new Unit('Gepanzerte', 'Daqan', 6, ['Elite', 'Nahkampf'], ['Rüstung 1', 'Autonom'], 1, 4, 3, 'Die Wächter von Hernfar'); }
 	static KampfmagierAusGreyhaven() { return new Unit('Kampfmagier aus Greyhaven', 'Daqan', 5, ['Infanterie', 'Zauberer', 'Fernkampf'], ['Runenschild', 'Machtfluss'], 2, 3, 3, 'Die Wächter von Hernfar'); }
 	static Kristallspitze() { return new Unit('Kristallspitze', 'Daqan', 2, ['Gelände'], ['Kristallspitze'], 0, 0, 0, 'Die Wächter von Hernfar'); }
-	static BarrikadeDaqan() { return new Unit('Barrikade', 'Daqan', 1, ['Gelände'], ['Barrikade'], 0, 0, 0, 'Die Wächter von Hernfar'); }
+	static BarrikadeDaqan() { return new Unit('BarrikadeDaqan', 'Daqan', 1, ['Gelände'], ['Barrikade'], 0, 0, 0, 'Die Wächter von Hernfar'); }
+	static KommandozeltDaqan() { return new Unit('KommandozeltDaqan', 'Daqan', -5, ['Gelände'], ['Kommandozelt'], 0, 0, 0); }
 	//Uthuk Units
 	static Chaoslord() { return new Unit('Chaoslord', 'Uthuk', 8, ['Legende', 'Nahkampf'], ['Standhaft 1', 'Erschrecken', 'Gewaltig'], 1, 4, 6); }
 	static Unheilbringer() { return new Unit('Unheilbringer', 'Uthuk', 8, ['Legende', 'Nahkampf'], ['Verschlingen', 'Festsetzen', 'Graben'], 3, 3, 5, 'Kriegsmeute von Scorn'); }
@@ -36,20 +37,23 @@ class Unit{
 	static Vipernlegion() { return new Unit('Viperlegion', 'Uthuk', 4, ['Infanterie', 'Bogenschütze', 'Fernkampf'], ['Vipernbiss'], 2, 2, 3); }
 	static Fleischfetzer() { return new Unit('Fleischfetzer', 'Uthuk', 6, ['Kavallerie', 'Nahkampf'], ['Blutdurst', 'Verfolgen 2'], 3, 3, 3); }
 	static Blutfeld() { return new Unit('Blutfeld', 'Uthuk', 2, ['Gelände'], ['Blutfeld'], 0, 0, 0, 'Kriegsmeute von Scorn'); }
-	static BarrikadeUthuk() { return new Unit('Barrikade', 'Uthuk', 1, ['Gelände'], ['Barrikade'], 0, 0, 0, 'Kriegsmeute von Scorn'); }
-	//Legion Units
-	static Grabwyrm() { return new Unit('Grabwyrm', 'Legion', 10, ['Legende', 'Drache', 'Nahkampf'], ['Fliegen', 'Pestodem', 'Ernte'], 3, 4, 6, 'Die Herolde von Dreadfall'); }
-	static Totengeist() { return new Unit('Totengeist', 'Legion', 6, ['Elite', 'Nahkampf'], ['Besitz ergreifen', 'Ätherisch'], 3, 2, 3, 'Die Herolde von Dreadfall'); }
-	static Todesritter() { return new Unit('Todesritter', 'Legion', 6, ['Kavallerie', 'Ritter', 'Nahkampf'], ['Scharfrichter', 'Unheilige Macht'], 2, 4, 3, 'Die Herolde von Dreadfall'); }
-	static SkelettBogenschützen() { return new Unit('Skelett-Bogenschützen', 'Legion', 4, ['Infanterie', 'Untergebener', 'Bogenschütze', 'Fernkampf'], ['Pestpfeile'], 2, 2, 3, 'Die Herolde von Dreadfall'); }
-	static WiederbelebteDreadfall() { return new Unit('Wiederbelebte', 'Legion', 4, ['Infanterie', 'Untergebener', 'Nahkampf'], ['Regenerieren', 'Legion'], 2, 1, 3, 'Die Herolde von Dreadfall'); }
-	static WiederbelebteNebel() { return new Unit('Wiederbelebte', 'Legion', 4, ['Infanterie', 'Untergebener', 'Nahkampf'], ['Regenerieren', 'Legion'], 2, 1, 3, 'Schrecken aus dem Nebel'); }
-	static Knochenschrecken() { return new Unit('Knochenschrecken', 'Legion', 3, ['Infanterie', 'Untergebener', 'Nahkampf'], ['Unnachgiebig', 'Erzwungen'], 1, 3, 3, 'Schrecken aus dem Nebel'); }
-	static Nekromanten() { return new Unit('Nektromanten', 'Legion', 5, ['Infanterie', 'Zauberer', 'Fernkampf'], ['Einfluss', 'Aussaugen'], 2, 3, 3, 'Schrecken aus dem Nebel'); }
-	static Barghests() { return new Unit('Barghests', 'Legion', 6, ['Kavallerie', 'Nahkampf'], ['Pirschen', 'Heulen'], 3, 3, 3, 'Schrecken aus dem Nebel'); }
-	static Todesfee() { return new Unit('Todesfee', 'Legion', 8, ['Legende', 'Nahkampf'], ['Erschreckend', 'Verflucht', 'Aura der Standhaftigkeit'], 2, 4, 5, 'Schrecken aus dem Nebel'); }
-	static FriedhofDreadfall() { return new Unit('Friedhof', 'Legion', 2, ['Gelände'], ['Friedhof'], 0, 0, 0, 'Die Herolde von Dreadfall'); }
-	static FriedhofNebel() { return new Unit('Friedhof', 'Legion', 2, ['Gelände'], ['Friedhof'], 0, 0, 0, 'Schrecken aus dem Nebel'); }
+	static BarrikadeUthuk() { return new Unit('BarrikadeUthuk', 'Uthuk', 1, ['Gelände'], ['Barrikade'], 0, 0, 0, 'Kriegsmeute von Scorn'); }
+	static KommandozeltUthuk() { return new Unit('KommandozeltUthuk', 'Uthuk', -5, ['Gelände'], ['Kommandozelt'], 0, 0, 0); }
+	//Waiqar Units
+	static Grabwyrm() { return new Unit('Grabwyrm', 'Waiqar', 10, ['Legende', 'Drache', 'Nahkampf'], ['Fliegen', 'Pestodem', 'Ernte'], 3, 4, 6, 'Die Herolde von Dreadfall'); }
+	static Totengeist() { return new Unit('Totengeist', 'Waiqar', 6, ['Elite', 'Nahkampf'], ['Besitz ergreifen', 'Ätherisch'], 3, 2, 3, 'Die Herolde von Dreadfall'); }
+	static Todesritter() { return new Unit('Todesritter', 'Waiqar', 6, ['Kavallerie', 'Ritter', 'Nahkampf'], ['Scharfrichter', 'Unheilige Macht'], 2, 4, 3, 'Die Herolde von Dreadfall'); }
+	static SkelettBogenschützen() { return new Unit('Skelett-Bogenschützen', 'Waiqar', 4, ['Infanterie', 'Untergebener', 'Bogenschütze', 'Fernkampf'], ['Pestpfeile'], 2, 2, 3, 'Die Herolde von Dreadfall'); }
+	static WiederbelebteDreadfall() { return new Unit('Wiederbelebte', 'Waiqar', 4, ['Infanterie', 'Untergebener', 'Nahkampf'], ['Regenerieren', 'Legion'], 2, 1, 3, 'Die Herolde von Dreadfall'); }
+	static WiederbelebteNebel() { return new Unit('Wiederbelebte', 'Waiqar', 4, ['Infanterie', 'Untergebener', 'Nahkampf'], ['Regenerieren', 'Legion'], 2, 1, 3, 'Schrecken aus dem Nebel'); }
+	static Knochenschrecken() { return new Unit('Knochenschrecken', 'Waiqar', 3, ['Infanterie', 'Untergebener', 'Nahkampf'], ['Unnachgiebig', 'Erzwungen'], 1, 3, 3, 'Schrecken aus dem Nebel'); }
+	static Nekromanten() { return new Unit('Nekromanten', 'Waiqar', 5, ['Infanterie', 'Zauberer', 'Fernkampf'], ['Einfluss', 'Aussaugen'], 2, 3, 3, 'Schrecken aus dem Nebel'); }
+	static Barghests() { return new Unit('Barghests', 'Waiqar', 6, ['Kavallerie', 'Nahkampf'], ['Pirschen', 'Heulen'], 3, 3, 3, 'Schrecken aus dem Nebel'); }
+	static Todesfee() { return new Unit('Todesfee', 'Waiqar', 8, ['Legende', 'Nahkampf'], ['Erschreckend', 'Verflucht', 'Aura der Standhaftigkeit'], 2, 4, 5, 'Schrecken aus dem Nebel'); }
+	static FriedhofDreadfall() { return new Unit('Friedhof', 'Waiqar', 2, ['Gelände'], ['Friedhof'], 0, 0, 0, 'Die Herolde von Dreadfall'); }
+	static FriedhofNebel() { return new Unit('Friedhof', 'Waiqar', 2, ['Gelände'], ['Friedhof'], 0, 0, 0, 'Schrecken aus dem Nebel'); }
+	static KommandozeltWeiqarDreadfall() { return new Unit('KommandozeltWeiqar', 'Waiqar', -5, ['Gelände'], ['Kommandozelt'], 0, 0, 0, 'Die Herolde von Dreadfall'); }
+	static KommandozeltWeiqarNebel() { return new Unit('KommandozeltWeiqar', 'Waiqar', -5, ['Gelände'], ['Kommandozelt'], 0, 0, 0, 'Schrecken aus dem Nebel'); }
 }
 
 const BuilderComponent = {
