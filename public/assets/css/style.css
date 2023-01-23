@@ -9,9 +9,9 @@
 }
 
 .faction-container.selected {
-	position: absolute;
+	/*position: absolute;
 	left: 0;
-	top: 0;
+	top: 0;*/
 	height: 50px;
 }
 
@@ -19,7 +19,7 @@
 	display: none;
 }
 
-.army-points {
+#header {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -27,15 +27,22 @@
 	height: 24px;
 	background-color: white;
 	text-align: center;
-	z-index: 1;
+	z-index: 5;
 }
 
 .unit-card {
 	display: inline-block;
 	position: relative;
+	user-select: none;
 	min-width: 240px;
 	max-width: 240px;
 	min-height: 60px;
+}
+
+.card-container .unit-card:not(:first-child) {
+	position: absolute;
+	left: 25px;
+	z-index: -1;
 }
 
 .card-container {
@@ -48,8 +55,19 @@
 	width: 500px;
 }
 
+.card-container div div {
+	position: relative;
+}
+
 .army-container {
 	width: 250px;
+	margin-left: 200px;
+	transition: margin-left .5s ease-in-out;
+}
+
+.army-container.open {
+	margin-left: 0px;
+	transition: margin-left .5s ease-in-out;
 }
 
 .unit-prop {
@@ -58,6 +76,23 @@
 
 .unit-name {
 	float: left;
+}
+
+.unit-skill {
+	display: inline;
+}
+
+.unit-type {
+	display: inline;
+}
+
+/* TODO: last child seems not to be last child... */
+.unit-card > .unit-skill:not(:last-child):after {
+	content: ', ';
+}
+
+.unit-card > .unit-type:not(:last-child):after {
+	content: ' • '
 }
 
 .unit-cost {
@@ -82,6 +117,15 @@
 	padding: 10px;
 	margin: 5px;
 	opacity: .8;
+	width: 25%;
+}
+
+.faction-selector-label img {
+	height: 150px;
+}
+
+.faction-container.selected .faction-selector-label img {
+	height: 50px;
 }
 
 .faction-selector:checked + .faction-selector-label,
@@ -92,4 +136,39 @@
 
 .faction-selector-label div {
 	text-align: center;
+}
+
+.skill-container {
+	position: absolute;
+	left: 10px;
+	top: 235px;
+	width: 450px;
+}
+
+.skill-container input {
+	display: none;
+}
+
+.skill-container input + label {
+	user-select: none;
+}
+
+.accordion-header {
+	background-color: #c1c1c1;
+}
+
+.accordion-content{
+	background-color: lightgrey;
+}
+
+.skill-container input + label {
+	max-height: 19px;
+	overflow: hidden;
+	display: block;
+	transition: max-height .2s -.1s ease-in-out;
+}
+
+.skill-container input:checked + label {
+	max-height: 150px;
+	transition: max-height .4s ease-in-out;
 }

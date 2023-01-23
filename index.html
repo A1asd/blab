@@ -5,24 +5,35 @@
 		<title>Battlelore Army Builder</title>
 		<link href="public/assets/css/style.css" rel="stylesheet">
 		<script src="https://unpkg.com/vue@3"></script>
+		<script src="src/Entities/Skill.js"></script>
 		<script src="src/Entities/Unit.js"></script>
+		<script src="src/Components/FactionSelectorComponent.js"></script>
+		<script src="src/Components/UnitCardComponent.js"></script>
+		<script src="src/Components/SkillComponent.js"></script>
 	</head>
 	<body>
 		<div id="app">
-			<div class="army-points">verfügbare Punkte: {{maxPoints + (extraPoints ? 5 : 0) - usedPoints}}</div>
-			<div class="faction-container" :class="{ selected: faction }">
-				<input id="factionDaqan" class="faction-selector" type="radio" name="faction" v-model="faction" value="Daqan" /><div class="faction-selector-label"><label for="factionDaqan"><img src="public/assets/img/daqan.png" /><div>Daqan</div></div></label>
-				<input id="factionUthuk" class="faction-selector" type="radio" name="faction" v-model="faction" value="Uthuk" /><div class="faction-selector-label"><label for="factionUthuk"><img src="public/assets/img/uthuk.png" /><div>Uthuk</div></div></label>
-				<input id="factionWaiqar" class="faction-selector" type="radio" name="faction" v-model="faction" value="Waiqar" /><div class="faction-selector-label"><label for="factionWaiqar"><img src="public/assets/img/waiqar.png" /><div>Waiqar</div></div></label>
+			<div id="header">
+				<input id="skill-container-toggle" type="checkbox" v-model="showSkills">
+				<label for="skill-container-toggle">skills</label>
+				<div class="army-points">verfügbare Punkte: {{maxPoints + (extraPoints ? 5 : 0) - usedPoints}}</div>
+				<input id="army-container-toggle" type="checkbox" v-model="showArmy">
+				<label for="army-container-toggle">army</label>
+			</div>
+			<faction-selector-component :max-points="maxPoints" :used-points="usedPoints" :extra-points="extraPoints" :show-skills="showSkills" :show-army="showArmy"></faction-selector-component>
+			<div class="skill-container" v-if="showSkills">
+				<skill-component v-for="skill in skills" :skill="skill"></skill-component>
 			</div>
 			<div class="card-container">
 				<div class="unit-container">
 					<div v-for="pack in units">
-						<builder-component v-for="unit in pack" :unit="unit"></builder-component>
+						<unit-card v-for="(unit, index) in pack" :unit="unit" :index="index" :customfunc="addUnit" :packlength="pack.length"></unit-card>
 					</div>
 				</div>
-				<div class="army-container">
-					<army-component v-for="unit in army" :unit="unit"></army-component>
+				<div class="army-container" :class="{ open: showArmy }">
+					<div v-for="pack in army">
+						<unit-card v-for="(unit, index) in pack" :unit="unit" :index="index" :customfunc="removeUnit" :packlength="pack.length"></unit-card>
+					</div>
 				</div>
 			</div>
 		</div>
